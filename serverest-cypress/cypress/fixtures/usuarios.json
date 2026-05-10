@@ -1,0 +1,12 @@
+{
+  "usuarioValido": {
+    "nome": "Fulano da Silva",
+    "email": "fulano@qa.com",
+    "password": "teste",
+    "administrador": "true"
+  },
+  "usuarioInvalido": {
+    "email": "email_invalido@teste.com",
+    "password": "senha_errada"
+  }
+}
