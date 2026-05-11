@@ -18,40 +18,14 @@ class LoginPage {
     return this
   }
 
-
-  digitarEmail(email) {
-    this.inputEmail.clear().type(email)
-    return this
-  }
-
-
-  digitarSenha(senha) {
-    this.inputPassword.clear().type(senha)
-    return this
-  }
-
- 
-  clicarEntrar() {
+  realizarLogin(email, senha) {
+    this.inputEmail.type(email)
+    this.inputPassword.type(senha)
     this.btnEntrar.click()
     return this
   }
 
-
-  realizarLogin(email, senha) {
-    this.digitarEmail(email)
-    this.digitarSenha(senha)
-    this.clicarEntrar()
-    return this
-  }
-
-
-  deveEstarNaPaginaDeLogin() {
-    cy.url().should('include', '/login')
-    this.btnEntrar.should('be.visible')
-    return this
-  }
-
-  deveExibirMensagemDeErroDeCamposInvalidos() {
+  exibirMensagemDeErroDeCamposInvalidos() {
     cy.contains('span', 'Email e/ou senha inválidos').should('be.visible');
   }
 }

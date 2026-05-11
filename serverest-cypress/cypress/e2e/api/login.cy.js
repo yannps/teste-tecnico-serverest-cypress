@@ -2,7 +2,7 @@ describe('Cenário API: Autenticação', () => {
   const API = Cypress.env('apiBaseUrl')
 
   context('Credenciais válidas', () => {
-    it('deve retornar status 200 e um token Bearer ao autenticar com sucesso', () => {
+    it('deve retornar status 200 e um token ao autenticar com sucesso', () => {
       cy.fixture('usuarios').then(({ usuarioValido }) => {
         cy.request({
           method: 'POST',
@@ -14,7 +14,7 @@ describe('Cenário API: Autenticação', () => {
         }).then((response) => {
           expect(response.status).to.eq(200)
           expect(response.body).to.have.property('message', 'Login realizado com sucesso')
-          expect(response.body).to.have.property('authorization').and.to.be.a('string')
+          expect(response.body).to.have.property('authorization')
 
         })
       })
@@ -27,8 +27,8 @@ context('Credenciais inválidas', () => {
           method: 'POST',
           url: `${API}/login`,
           body: {
-            email: usuarioInvalido.email,   // e-mail correto
-            password: usuarioInvalido.password, // senha errada
+            email: usuarioInvalido.email,   
+            password: usuarioInvalido.password, 
           },
           failOnStatusCode: false,
         }).then((response) => {

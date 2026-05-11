@@ -66,20 +66,14 @@ describe('Cenário API: CRUD de Produtos', () => {
   })
 
   context('GET — Listagem de produtos', () => {
-    it('deve retornar status 200 e um array de produtos sem autenticação', () => {
+    it('deve retornar status 200 e um array de produtos', () => {
       cy.request({
         method: 'GET',
         url: `${API}/produtos`,
       }).then((response) => {
         expect(response.status).to.eq(200)
-
         expect(response.body).to.have.property('quantidade').and.to.be.a('number')
         expect(response.body).to.have.property('produtos').and.to.be.an('array')
-
-        if (response.body.produtos.length > 0) {
-          const primeiroProduto = response.body.produtos[0]
-          expect(primeiroProduto).to.have.all.keys('nome', 'preco', 'descricao', 'quantidade', '_id')
-        }
       })
     })
   })

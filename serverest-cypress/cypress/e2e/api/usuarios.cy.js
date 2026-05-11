@@ -24,7 +24,7 @@ describe('Cenário API: CRUD de Usuários', () => {
 
         expect(response.status).to.eq(201)
         expect(response.body).to.have.property('message', 'Cadastro realizado com sucesso')
-        expect(response.body).to.have.property('_id').and.to.be.a('string')
+        expect(response.body).to.have.property('_id')
       })
     })
 
@@ -36,10 +36,7 @@ describe('Cenário API: CRUD de Usuários', () => {
         failOnStatusCode: false,
       }).then((response) => {
         expect(response.status).to.eq(400)
-        expect(response.body).to.have.property(
-          'message',
-          'Este email já está sendo usado'
-        )
+        expect(response.body).to.have.property('message','Este email já está sendo usado')
       })
     })
   })

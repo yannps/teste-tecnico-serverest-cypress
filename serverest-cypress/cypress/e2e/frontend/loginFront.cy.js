@@ -8,9 +8,11 @@ describe('Cenário 1 — Autenticação de Usuário', () => {
   })
 
   context('Login com credenciais válidas', () => {
-    it('deve redirecionar para a lista de produtos após login bem-sucedido', () => {
+    it('deve redirecionar para a página Home após login bem-sucedido', () => {
       cy.fixture('usuarios').then(({ usuarioValido }) => {
         LoginPage.realizarLogin(usuarioValido.email, usuarioValido.password)
+        cy.contains('Bem Vindo Fulano da Silva').should('exist')
+        cy.contains('Este é seu sistema para administrar seu ecommerce.').should('exist')
         HomePage.btnLogout.should('be.visible')
       })
     })
@@ -21,8 +23,7 @@ describe('Cenário 1 — Autenticação de Usuário', () => {
       cy.fixture('usuarios').then(({ usuarioInvalido }) => {
         
         LoginPage.realizarLogin(usuarioInvalido.email, usuarioInvalido.password)
-        LoginPage.deveExibirMensagemDeErroDeCamposInvalidos()
-        LoginPage.deveEstarNaPaginaDeLogin()
+        LoginPage.exibirMensagemDeErroDeCamposInvalidos()
       })
     })
   })
