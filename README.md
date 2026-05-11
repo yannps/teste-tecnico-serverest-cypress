@@ -131,13 +131,10 @@ Os testes cobrem as seguintes aplicações do ServeRest:
 |---|---|---|
 | `GET` | `/usuarios` | Listar usuários |
 | `POST` | `/usuarios` | Criar usuário |
-| `PUT` | `/usuarios/{id}` | Editar usuário |
 | `DELETE` | `/usuarios/{id}` | Excluir usuário |
 | `POST` | `/login` | Autenticar usuário |
 | `GET` | `/produtos` | Listar produtos |
 | `POST` | `/produtos` | Cadastrar produto |
-| `GET` | `/carrinhos` | Listar carrinhos |
-| `POST` | `/carrinhos` | Criar carrinho |
 
 ---
 
