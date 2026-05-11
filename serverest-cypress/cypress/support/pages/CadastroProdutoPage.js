@@ -20,6 +20,21 @@ class CadastroProdutoPage {
     return cy.get('[data-testid="cadastarProdutos"]')
   }
 
+preencherFormulario(nome, preco, descricao, quantidade) {
+  this.inputNome.click();
+  this.inputNome.type(nome);
+  this.inputPreco.click();
+  this.inputPreco.type(preco);
+  this.inputDescricao.click();
+  this.inputDescricao.type(descricao);
+  this.inputQuantidade.click();
+  this.inputQuantidade.type(quantidade);
+} 
+
+enviarFormularioVazio() {
+  this.btnCadastrar.click();
+} 
+
 }
 
 module.exports = new CadastroProdutoPage()

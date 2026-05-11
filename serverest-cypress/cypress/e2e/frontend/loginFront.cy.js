@@ -1,5 +1,6 @@
 
 import LoginPage from '../../support/pages/LoginPage'
+import HomePage from '../../support/pages/HomePage'
 
 describe('Cenário 1 — Autenticação de Usuário', () => {
   beforeEach(() => {
@@ -10,7 +11,7 @@ describe('Cenário 1 — Autenticação de Usuário', () => {
     it('deve redirecionar para a lista de produtos após login bem-sucedido', () => {
       cy.fixture('usuarios').then(({ usuarioValido }) => {
         LoginPage.realizarLogin(usuarioValido.email, usuarioValido.password)
-        cy.get('[data-testid="logout"]').should('be.visible')
+        HomePage.btnLogout.should('be.visible')
       })
     })
   })
